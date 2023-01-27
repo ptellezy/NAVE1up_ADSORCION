@@ -12,6 +12,8 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="REACTOR__ADSORCION_MAIN.vi" Type="VI" URL="../REACTOR__ADSORCION_MAIN.vi"/>
+		<Item Name="ALONE_ALICATS.vi" Type="VI" URL="../ALONE_ALICATS.vi"/>
+		<Item Name="ALONE_EUROTHERM.vi" Type="VI" URL="../ALONE_EUROTHERM.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="High Resolution Relative Seconds.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/High Resolution Relative Seconds.vi"/>
@@ -67,6 +69,14 @@
 				<Item Name="Write Characters To File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Characters To File.vi"/>
 				<Item Name="Write File+ (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write File+ (string).vi"/>
 				<Item Name="compatWriteText.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatWriteText.vi"/>
+				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
+				<Item Name="NI_LVConfig.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/config.llb/NI_LVConfig.lvlib"/>
+				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
+				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
+				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
+				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
+				<Item Name="subElapsedTime.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/subElapsedTime.vi"/>
+				<Item Name="FormatTime String.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/FormatTime String.vi"/>
 			</Item>
 			<Item Name="REACTOR_DATOS.ctl" Type="VI" URL="../REACTOR_DATOS.ctl"/>
 			<Item Name="REACTOR_COMUNICACIONES.ctl" Type="VI" URL="../REACTOR_COMUNICACIONES.ctl"/>
@@ -92,7 +102,6 @@
 			<Item Name="Eurotherm_New_Module.vi" Type="VI" URL="../EUROTHERM/Eurotherm_New_Module.vi"/>
 			<Item Name="Calcula_CRC.vi" Type="VI" URL="../EUROTHERM/Calcula_CRC.vi"/>
 			<Item Name="Ascii_Char.vi" Type="VI" URL="../EUROTHERM/Ascii_Char.vi"/>
-			<Item Name="__Alicat SD_Hardware_Module_v2.vi" Type="VI" URL="../SERIAL ALICATS/__Alicat SD_Hardware_Module_v2.vi"/>
 			<Item Name="__Alicat SD_ReadingCluster.ctl" Type="VI" URL="../SERIAL ALICATS/__Alicat SD_ReadingCluster.ctl"/>
 			<Item Name="__parseReading.vi" Type="VI" URL="../SERIAL ALICATS/__parseReading.vi"/>
 			<Item Name="Display_Module.vi" Type="VI" URL="../DISPLAY/Display_Module.vi"/>
@@ -128,7 +137,134 @@
 			<Item Name="REACTOR__SET_TEMPERATURAS.vi" Type="VI" URL="../SECUENCIAS/REACTOR__SET_TEMPERATURAS.vi"/>
 			<Item Name="REACTOR__SET_PARAMETROS_MEDIDA.vi" Type="VI" URL="../SECUENCIAS/REACTOR__SET_PARAMETROS_MEDIDA.vi"/>
 			<Item Name="REACTOR__SET_REPETICIONES.vi" Type="VI" URL="../SECUENCIAS/REACTOR__SET_REPETICIONES.vi"/>
+			<Item Name="__Alicat SD_ConfigRead.vi" Type="VI" URL="../SERIAL ALICATS/__Alicat SD_ConfigRead.vi"/>
+			<Item Name="__Alicat SD_Hardware_Module_v2.vi" Type="VI" URL="../SERIAL ALICATS/__Alicat SD_Hardware_Module_v2.vi"/>
+			<Item Name="Elapsed_Sampling_MFCs_Module.vi" Type="VI" URL="../TIMING/Elapsed_Sampling_MFCs_Module.vi"/>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="ADSORCION" Type="EXE">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{09FCB005-A8D9-4C38-8CC5-EAE78DF03DB6}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{343D2170-5C33-436E-BB6C-3F1BD5FCE2F1}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{1694C7AF-1026-47C8-A0DE-90205863E79C}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">ADSORCION</Property>
+				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">/C/BUILDS</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{5AC41260-2593-472B-8416-B72F3E09CF1C}</Property>
+				<Property Name="Bld_version.build" Type="Int">2</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Destination[0].destName" Type="Str">ADSORCION.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">/C/BUILDS/ADSORCION.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">/C/BUILDS/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Source[0].itemID" Type="Str">{080FC8CB-B08F-404A-BBFF-EAF230FF5F8B}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/REACTOR__ADSORCION_MAIN.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_companyName" Type="Str">Universidad de Zaragoza</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">ADSORCION</Property>
+				<Property Name="TgtF_internalName" Type="Str">ADSORCION</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2023 Universidad de Zaragoza</Property>
+				<Property Name="TgtF_productName" Type="Str">ADSORCION</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{F3DF95A4-0FCF-4325-86B3-19F76A1E912C}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">ADSORCION.exe</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+			<Item Name="ALICATS" Type="EXE">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{720CAEDA-F5E6-484C-9856-5B0069AD3F73}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{386C331A-297C-4935-B15A-801FF39DE79F}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{215A2B91-E8A9-4D03-93C8-787267DF3B51}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">ALICATS</Property>
+				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">/C/BUILDS</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{48D88632-8612-4414-B3CC-5216B586D4C8}</Property>
+				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Destination[0].destName" Type="Str">ALICATS.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">/C/BUILDS/ALICATS.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">/C/BUILDS/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Source[0].itemID" Type="Str">{080FC8CB-B08F-404A-BBFF-EAF230FF5F8B}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/ALONE_ALICATS.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_companyName" Type="Str">Universidad de Zaragoza</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">ALICATS</Property>
+				<Property Name="TgtF_internalName" Type="Str">ALICATS</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2023 Universidad de Zaragoza</Property>
+				<Property Name="TgtF_productName" Type="Str">ALICATS</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{2F96E929-C7AB-4D59-A37E-31EA152AB6E4}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">ALICATS.exe</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+			<Item Name="EUROTHERM" Type="EXE">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{0FC79808-9B31-4BD3-8B5B-F2AAB81376BF}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{DE9C40A5-C431-49BF-8462-EBC16DB85C5B}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{8F118608-7557-4776-B4C7-9EA84E2185C3}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">EUROTHERM</Property>
+				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">/C/BUILDS</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{3ADC8A7F-6D97-42E7-9A67-05CDC1603183}</Property>
+				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Destination[0].destName" Type="Str">EUROTHERM.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">/C/BUILDS/EUROTHERM.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">/C/BUILDS/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Source[0].itemID" Type="Str">{080FC8CB-B08F-404A-BBFF-EAF230FF5F8B}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/ALONE_EUROTHERM.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_companyName" Type="Str">Universidad de Zaragoza</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">EUROTHERM</Property>
+				<Property Name="TgtF_internalName" Type="Str">EUROTHERM</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2023 Universidad de Zaragoza</Property>
+				<Property Name="TgtF_productName" Type="Str">EUROTHERM</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{C3F99BB4-1808-4930-9C55-B7D44F39AF44}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">EUROTHERM.exe</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>
